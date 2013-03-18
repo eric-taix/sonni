@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.jug.montpellier.sonni.homeperspective">
+   <implementation class="org.jug.montpellier.sonni.home.HomePerspectiveContribution"/>
+   <service>
+      <provide interface="org.jug.montpellier.sonni.main.services.IPerspectiveViewContribution"/>
+   </service>
+</scr:component>

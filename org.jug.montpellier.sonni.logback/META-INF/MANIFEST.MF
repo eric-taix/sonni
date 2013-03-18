@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Logback
+Bundle-SymbolicName: org.jug.montpellier.sonni.logback
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: JUG Montpellier
+Fragment-Host: ch.qos.logback.classic;bundle-version="0.9.27"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

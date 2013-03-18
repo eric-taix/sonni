@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>sonni</name>
+	<comment></comment>
+	<projects>
+		<project>org.jug.montpellier.sonni.aboutview</project>
+		<project>org.jug.montpellier.sonni.homeview</project>
+		<project>org.jug.montpellier.sonni.logback</project>
+		<project>org.jug.montpellier.sonni.main</project>
+		<project>org.jug.montpellier.sonni.newsview</project>
+		<project>org.jug.montpellier.sonni.paramview</project>
+		<project>org.jug.montpellier.sonni.servers</project>
+		<project>org.jug.montpellier.sonni.sponsorfooter</project>
+		<project>org.jug.montpellier.sonni.target</project>
+		<project>org.jug.montpellier.sonni.theme</project>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+</projectDescription>

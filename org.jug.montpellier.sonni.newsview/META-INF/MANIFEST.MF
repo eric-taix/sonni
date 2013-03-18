@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Newsview
+Bundle-SymbolicName: org.jug.montpellier.sonni.news
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: com.vaadin;bundle-version="6.7.6",
+ org.jug.montpellier.sonni.main;bundle-version="1.0.0"
+Service-Component: OSGI-INF/news.xml
+Bundle-Vendor: JUG Montpellier
