@@ -15,7 +15,7 @@ How to install
 ==============
 
 - Create a new Eclipse Juno workspace  
-- Download the zip file and extract it in your workspace  
+- Download the zip file and extract all sub-projects (org.jug.*) it in your workspace  
 - Import projects using 'File - Import - Existing projects from workspace'  
 - Open the file 'org.jug.montpellier.sonni.target/vaadin.target'  
 - Click on the right upper link 'Set as Target Plateform'  
