@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.jug.montpellier.sonni.param;
+package org.jug.montpellier.sonni.gift;
 
 import org.jug.montpellier.sonni.main.services.IPerspectiveViewContribution;
 
@@ -12,18 +12,17 @@ import com.vaadin.ui.Component;
 import com.vaadin.ui.Label;
 
 /**
- * @author eric
+ * @author etaix
  *
  */
-public class ParamPerspectiveContribution implements
-		IPerspectiveViewContribution {
+public class GiftView implements IPerspectiveViewContribution {
 
 	/* (non-Javadoc)
 	 * @see org.jug.montpellier.sonni.main.services.IPerspectiveViewContribution#getIcon()
 	 */
 	@Override
 	public Resource getIcon() {
-		return new ThemeResource("img/parameter.png");
+		return new ThemeResource("img/gift.png");
 	}
 
 	/* (non-Javadoc)
@@ -31,7 +30,7 @@ public class ParamPerspectiveContribution implements
 	 */
 	@Override
 	public String getTitle() {
-		return "Parameters";
+		return "Goodies";
 	}
 
 	/* (non-Javadoc)
@@ -39,7 +38,7 @@ public class ParamPerspectiveContribution implements
 	 */
 	@Override
 	public Component getView(Application application) {
-		return new Label("Parameters");
+		return new Label("Goodies");
 	}
 
 	/* (non-Javadoc)
@@ -47,7 +46,7 @@ public class ParamPerspectiveContribution implements
 	 */
 	@Override
 	public int getPreferedIndex() {
-		return 900;
+		return 800;
 	}
 
 }

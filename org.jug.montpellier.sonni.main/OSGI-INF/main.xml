@@ -2,5 +2,5 @@
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.jug.montpellier.sonni" factory='vaadin.app'>
    <implementation class="org.jug.montpellier.sonni.main.app.Sonni"/>
    <reference bind="bindPerspectiveContribution" cardinality="0..n" interface="org.jug.montpellier.sonni.main.services.IPerspectiveViewContribution" name="IPerspectiveViewContribution" policy="dynamic" unbind="unbindPerspectiveContribution"/>
-   <reference bind="bindFooterContribution" cardinality="0..1" interface="org.jug.montpellier.sonni.main.services.IFooterViewContribution" name="IFooterViewContribution" policy="dynamic" unbind="unbindFooterContribution"/>
+   <reference bind="bindFooterContribution" cardinality="0..n" interface="org.jug.montpellier.sonni.main.services.IFooterViewContribution" name="IFooterViewContribution" policy="dynamic" unbind="unbindFooterContribution"/>
 </scr:component>

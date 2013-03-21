@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.jug.montpellier.sonni.gift">
+   <implementation class="org.jug.montpellier.sonni.gift.GiftView"/>
+   <service>
+      <provide interface="org.jug.montpellier.sonni.main.services.IPerspectiveViewContribution"/>
+   </service>
+</scr:component>

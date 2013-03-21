@@ -6,7 +6,7 @@
 <stringAttribute key="bootstrap" value=""/>
 <stringAttribute key="checked" value="[NONE]"/>
 <booleanAttribute key="clearConfig" value="false"/>
-<stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/OSGi Vaadin Demo"/>
+<stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/Sonni OSGi"/>
 <booleanAttribute key="default" value="true"/>
 <booleanAttribute key="default_auto_start" value="true"/>
 <intAttribute key="default_start_level" value="4"/>
@@ -20,5 +20,5 @@
 <booleanAttribute key="tracing" value="false"/>
 <booleanAttribute key="useCustomFeatures" value="false"/>
 <booleanAttribute key="useDefaultConfigArea" value="true"/>
-<stringAttribute key="workspace_bundles" value="org.jug.montpellier.sonni.about@default:default,org.jug.montpellier.sonni.home@default:default,org.jug.montpellier.sonni.logback@default:false,org.jug.montpellier.sonni.main@default:default,org.jug.montpellier.sonni.news@default:default,org.jug.montpellier.sonni.param@default:default,org.jug.montpellier.sonni.servers@default:default,org.jug.montpellier.sonni.sponsors@default:default,org.jug.montpellier.sonni.theme@default:false"/>
+<stringAttribute key="workspace_bundles" value="org.jug.montpellier.sonni.about@default:default,org.jug.montpellier.sonni.gift@default:default,org.jug.montpellier.sonni.home@default:default,org.jug.montpellier.sonni.logback@default:false,org.jug.montpellier.sonni.main@default:default,org.jug.montpellier.sonni.news@default:default,org.jug.montpellier.sonni.param@default:default,org.jug.montpellier.sonni.sponsors@default:default,org.jug.montpellier.sonni.theme@default:false"/>
 </launchConfiguration>

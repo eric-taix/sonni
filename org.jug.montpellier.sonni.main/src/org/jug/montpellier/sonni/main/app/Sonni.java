@@ -88,11 +88,13 @@ public class Sonni extends Application implements PerspectiveDisplayer {
 		
 		perspectiveContent = new VerticalLayout();
 		perspectiveContent.setSizeFull();
-		perspectiveContent.setMargin(false);
+		perspectiveContent.setMargin(true);
+		perspectiveContent.setSpacing(true);
 		contentContainer.addComponent(perspectiveContent);
 		contentContainer.setExpandRatio(perspectiveContent, 1.0f);
 		
 		footerContainer = new VerticalLayout();
+		footerContainer.addStyleName("footer");
 		footerContainer.setWidth("100%");
 		footerContainer.setHeight("200px");
 		contentContainer.addComponent(footerContainer);
