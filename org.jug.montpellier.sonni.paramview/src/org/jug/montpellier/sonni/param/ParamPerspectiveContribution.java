@@ -34,12 +34,17 @@ public class ParamPerspectiveContribution implements
 		return "Parameters";
 	}
 
+	@Override
+	public String getButtonLabel() {
+		return null;
+	}
+
 	/* (non-Javadoc)
 	 * @see org.jug.montpellier.sonni.main.services.IPerspectiveViewContribution#getView(com.vaadin.Application)
 	 */
 	@Override
 	public Component getView(Application application) {
-		return new Label("Parameters");
+		return new BundleView();
 	}
 
 	/* (non-Javadoc)

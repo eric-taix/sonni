@@ -24,6 +24,11 @@ public class AboutPerspectiveContribution implements
 	}
 
 	@Override
+	public String getButtonLabel() {
+		return null;
+	}
+
+	@Override
 	public Component getView(Application application) {
 		return getAboutDialog();
 	}
@@ -36,9 +41,9 @@ public class AboutPerspectiveContribution implements
 	private Component getAboutDialog() {
 		CssLayout titleLayout = new CssLayout();
 		titleLayout.addStyleName("transparent-frame");
-		titleLayout.setWidth("100%");
+		titleLayout.setWidth("90%");
 		Label title = new Label("Sonni - Dynamic Vaadin OSGi Demo");
-		title.setWidth("400px");
+		title.setWidth("100%");
 		title.addStyleName("about-title");
 		titleLayout.addComponent(title);
 		Label description = new Label(

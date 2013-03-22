@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import com.vaadin.Application;
 import com.vaadin.data.util.ObjectProperty;
+import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
@@ -34,7 +35,7 @@ public class Sonni extends Application implements PerspectiveDisplayer {
 	private final List<IPerspectiveViewContribution> perspectiveContributions = Collections
 			.synchronizedList(new ArrayList<IPerspectiveViewContribution>());
 	private IFooterViewContribution footerViewContribution;
-	
+
 	private Window main;
 	private VerticalLayout mainLayout;
 
@@ -42,7 +43,7 @@ public class Sonni extends Application implements PerspectiveDisplayer {
 
 	private PerspectiveToolbar perspectiveToolbar;
 	private VerticalLayout contentContainer;
-	private VerticalLayout footerContainer;
+	private HorizontalLayout footerContainer;
 	private Label perspectiveLabel;
 	private VerticalLayout perspectiveContent;
 
@@ -85,20 +86,19 @@ public class Sonni extends Application implements PerspectiveDisplayer {
 		perspectiveLabel = new Label();
 		perspectiveLabel.addStyleName("perspective-title");
 		contentContainer.addComponent(perspectiveLabel);
-		
+
 		perspectiveContent = new VerticalLayout();
 		perspectiveContent.setSizeFull();
 		perspectiveContent.setMargin(true);
 		perspectiveContent.setSpacing(true);
 		contentContainer.addComponent(perspectiveContent);
 		contentContainer.setExpandRatio(perspectiveContent, 1.0f);
-		
-		footerContainer = new VerticalLayout();
+
+		footerContainer = new HorizontalLayout();
 		footerContainer.addStyleName("footer");
 		footerContainer.setWidth("100%");
-		footerContainer.setHeight("200px");
 		contentContainer.addComponent(footerContainer);
-		
+
 		// Add already binded perspective contributions
 		for (IPerspectiveViewContribution perspective : perspectiveContributions) {
 			perspectiveToolbar.addPerspective(perspective);
@@ -108,7 +108,7 @@ public class Sonni extends Application implements PerspectiveDisplayer {
 		if (footerViewContribution != null) {
 			footerContainer.addComponent(footerViewContribution.getView(this));
 		}
-		
+
 		// Create the indicator that is used as a poll mechanism. Manual
 		// server-side starting/stopping of bundles has a direct effect on the
 		// client UI
@@ -122,12 +122,17 @@ public class Sonni extends Application implements PerspectiveDisplayer {
 
 	@Override
 	public void displayPerspective(IPerspectiveViewContribution perspective) {
-		
-		perspectiveLabel.setPropertyDataSource(new ObjectProperty<String>(perspective.getTitle(), String.class));
+		if (perspective.getTitle() != null) {
+			perspectiveLabel.setPropertyDataSource(new ObjectProperty<String>(perspective.getTitle(), String.class));
+			perspectiveLabel.setVisible(true);
+		} else {
+			perspectiveLabel.setVisible(false);
+		}
 		Component comp = perspective.getView(this);
 		if (comp != null) {
 			perspectiveContent.removeAllComponents();
 			perspectiveContent.addComponent(comp);
+			perspectiveContent.setComponentAlignment(comp, Alignment.MIDDLE_CENTER);
 		}
 	}
 

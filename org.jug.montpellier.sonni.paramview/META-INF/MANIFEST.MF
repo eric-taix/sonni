@@ -5,6 +5,8 @@ Bundle-SymbolicName: org.jug.montpellier.sonni.param
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: com.vaadin;bundle-version="6.7.6",
- org.jug.montpellier.sonni.main;bundle-version="1.0.0"
+ org.jug.montpellier.sonni.main;bundle-version="1.0.0",
+ org.eclipse.osgi;bundle-version="3.7.1"
 Service-Component: OSGI-INF/param.xml
 Bundle-Vendor: JUG Montpellier
+Bundle-Activator: org.jug.montpellier.sonni.param.Activator

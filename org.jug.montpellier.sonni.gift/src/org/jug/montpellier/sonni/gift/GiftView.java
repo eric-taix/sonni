@@ -30,7 +30,12 @@ public class GiftView implements IPerspectiveViewContribution {
 	 */
 	@Override
 	public String getTitle() {
-		return "Goodies";
+		return "Time to goodies ;-)";
+	}
+
+	@Override
+	public String getButtonLabel() {
+		return "Gift";
 	}
 
 	/* (non-Javadoc)

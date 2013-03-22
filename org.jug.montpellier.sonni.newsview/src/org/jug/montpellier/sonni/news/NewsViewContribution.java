@@ -28,6 +28,11 @@ public class NewsViewContribution implements IPerspectiveViewContribution {
 	}
 
 	@Override
+	public String getButtonLabel() {
+		return null;
+	}
+
+	@Override
 	public Component getView(Application application) {
 		return new Label("Newview");
 	}

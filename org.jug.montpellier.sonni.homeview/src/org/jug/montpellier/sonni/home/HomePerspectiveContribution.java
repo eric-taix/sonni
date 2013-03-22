@@ -30,6 +30,11 @@ public class HomePerspectiveContribution implements IPerspectiveViewContribution
 	 */
 	@Override
 	public String getTitle() {
+		return "Welcome";
+	}
+
+	@Override
+	public String getButtonLabel() {
 		return "Home";
 	}
 
@@ -38,7 +43,9 @@ public class HomePerspectiveContribution implements IPerspectiveViewContribution
 	 */
 	@Override
 	public Component getView(Application application) {
-		return new Label("Home page");
+		Label l = new Label();
+		l.setIcon(new ThemeResource("img/logo-big2.png"));
+		return l;
 	}
 
 	@Override
