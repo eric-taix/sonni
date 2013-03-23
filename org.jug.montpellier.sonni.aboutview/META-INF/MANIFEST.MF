@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Aboutview
+Bundle-Name: About page
 Bundle-SymbolicName: org.jug.montpellier.sonni.about
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: com.vaadin;bundle-version="6.7.6",
  org.jug.montpellier.sonni.main;bundle-version="1.0.0"
 Service-Component: OSGI-ING/about.xml
-Bundle-Vendor: JUG Montpellier
+Bundle-Vendor: Eric Taix - Montpellier JUG

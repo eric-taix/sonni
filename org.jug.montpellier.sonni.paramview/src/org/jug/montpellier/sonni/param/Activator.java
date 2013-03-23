@@ -8,6 +8,10 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleEvent;
 import org.osgi.framework.SynchronousBundleListener;
 
+/**
+ * Tracker to add manage activated and desactivated bundles
+ * @author eric
+ */
 public class Activator implements BundleActivator, SynchronousBundleListener {
 
 	private static Bundle[] bundles;
@@ -21,12 +25,8 @@ public class Activator implements BundleActivator, SynchronousBundleListener {
 		Bundle[] allBundles = context.getBundles();
 		ArrayList<Bundle> bundleList = new ArrayList<Bundle>();
 
-		// Hack for adding only our relevant bundles to the list
 		for (Bundle bundle : allBundles) {
-			String symbolicName = bundle.getSymbolicName();
-			if (symbolicName.startsWith("org.jug.montpellier")) {
-				bundleList.add(bundle);
-			}
+			bundleList.add(bundle);
 		}
 		bundles = bundleList.toArray(new Bundle[] {});
 	}

@@ -9,7 +9,8 @@ import com.vaadin.Application;
 import com.vaadin.terminal.Resource;
 import com.vaadin.terminal.ThemeResource;
 import com.vaadin.ui.Component;
-import com.vaadin.ui.Label;
+import com.vaadin.ui.CssLayout;
+import com.vaadin.ui.Embedded;
 
 /**
  * @author etaix
@@ -43,9 +44,13 @@ public class HomePerspectiveContribution implements IPerspectiveViewContribution
 	 */
 	@Override
 	public Component getView(Application application) {
-		Label l = new Label();
-		l.setIcon(new ThemeResource("img/logo-big2.png"));
-		return l;
+		CssLayout layout = new CssLayout();
+		layout.addStyleName("center-parent");
+		layout.setSizeFull();
+		Embedded logo = new Embedded(null, new ThemeResource("img/logo-big2.png"));
+		logo.addStyleName("center-child");
+		layout.addComponent(logo);
+		return layout;
 	}
 
 	@Override

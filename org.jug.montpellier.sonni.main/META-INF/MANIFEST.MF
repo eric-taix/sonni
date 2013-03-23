@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Sonni Vaadin main
+Bundle-Name: Sonni framework
 Bundle-SymbolicName: org.jug.montpellier.sonni.main
 Bundle-Version: 1.0.0.qualifier
-Bundle-Vendor: Montpellier JUG
+Bundle-Vendor: Eric Taix - Montpellier JUG
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: com.vaadin;bundle-version="6.4.8"
 Service-Component: OSGI-INF/main.xml

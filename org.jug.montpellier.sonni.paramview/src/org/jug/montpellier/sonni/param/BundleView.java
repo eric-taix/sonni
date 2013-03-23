@@ -1,5 +1,7 @@
 package org.jug.montpellier.sonni.param;
 
+import java.util.Dictionary;
+
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleException;
 
@@ -14,91 +16,94 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.VerticalLayout;
 
+@SuppressWarnings("serial")
 public class BundleView extends CustomComponent {
 
 	private Table table;
 
-
 	public BundleView() {
-			VerticalLayout verticalLayout = new VerticalLayout();
-			verticalLayout.setMargin(true);
-			verticalLayout.setSpacing(true);
+		setSizeFull();
+		VerticalLayout verticalLayout = new VerticalLayout();
+		verticalLayout.setMargin(true);
+		verticalLayout.setSpacing(true);
+		verticalLayout.setSizeFull();
 
-			table = new Table();
-			table.addContainerProperty("Bundle Symbolic Name", String.class,
-			      new ThemeResource("icons/bundle.png"));
-			table.addContainerProperty("Version", String.class, null);
-			table.addContainerProperty("State", String.class, null);
-			table.addContainerProperty("Active", CheckBox.class, null);
-			table.setWidth("100%");
-			table.setPageLength(8);
-			table.setSortContainerPropertyId("Bundle Symbolic Name");
-			table.setSortAscending(true);
-			table.setImmediate(true);
+		table = new Table();
+		table.addContainerProperty("Name", String.class, null);
+		table.addContainerProperty("Vendor", String.class, null);
+		table.addContainerProperty("Symbolic name", String.class, new ThemeResource("icons/bundle.png"));
+		table.addContainerProperty("Version", String.class, null);
+		table.addContainerProperty("State", String.class, null);
+		table.addContainerProperty("Active", CheckBox.class, null);
+		table.setSizeFull();
+		table.setPageLength(0);
+		table.setSortContainerPropertyId("Bundle Symbolic Name");
+		table.setSortAscending(true);
+		table.setImmediate(true);
 
-			refreshTable();
-			verticalLayout.addComponent(table);
+		refreshTable();
+		verticalLayout.addComponent(table);
+		verticalLayout.setExpandRatio(table, 1.0f);
 
-			HorizontalLayout horizontalLayout = new HorizontalLayout();
-			horizontalLayout.setSpacing(true);
+		HorizontalLayout horizontalLayout = new HorizontalLayout();
+		horizontalLayout.setSpacing(true);
 
-			Button refreshButton = new Button("Refresh Table");
-			refreshButton.addListener(new ClickListener() {
+		Button refreshButton = new Button("Refresh Table");
+		refreshButton.addListener(new ClickListener() {
 
-				@Override
-				public void buttonClick(ClickEvent event) {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				refreshTable();
+			}
+		});
+		horizontalLayout.addComponent(refreshButton);
+
+		Button selectAllButton = new Button("Select All");
+		selectAllButton.addListener(new ClickListener() {
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				Bundle[] bundles = Activator.getBundles();
+				for (Bundle bundle : bundles) {
+					try {
+						bundle.start();
+					} catch (BundleException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					refreshTable();
 				}
-			});
-			horizontalLayout.addComponent(refreshButton);
+			}
+		});
+		horizontalLayout.addComponent(selectAllButton);
 
-			Button selectAllButton = new Button("Select All");
-			selectAllButton.addListener(new ClickListener() {
+		Button deselectAllButton = new Button("Deselect All");
+		deselectAllButton.addListener(new ClickListener() {
 
-				@Override
-				public void buttonClick(ClickEvent event) {
-					Bundle[] bundles = Activator.getBundles();
-					for (Bundle bundle : bundles) {
-						try {
-							bundle.start();
-						} catch (BundleException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						refreshTable();
+			@Override
+			public void buttonClick(ClickEvent event) {
+				Bundle[] bundles = Activator.getBundles();
+				for (Bundle bundle : bundles) {
+					try {
+						bundle.stop();
+					} catch (BundleException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
+					refreshTable();
 				}
-			});
-			horizontalLayout.addComponent(selectAllButton);
+			}
+		});
+		horizontalLayout.addComponent(deselectAllButton);
 
-			Button deselectAllButton = new Button("Deselect All");
-			deselectAllButton.addListener(new ClickListener() {
-
-				@Override
-				public void buttonClick(ClickEvent event) {
-					Bundle[] bundles = Activator.getBundles();
-					for (Bundle bundle : bundles) {
-						try {
-							bundle.stop();
-						} catch (BundleException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						refreshTable();
-					}
-				}
-			});
-			horizontalLayout.addComponent(deselectAllButton);
-
-			verticalLayout.addComponent(horizontalLayout);
-			setCompositionRoot(verticalLayout);
+		verticalLayout.addComponent(horizontalLayout);
+		setCompositionRoot(verticalLayout);
 	}
 
 	private void refreshTable() {
 		Bundle[] bundles = Activator.getBundles();
 		table.removeAllItems();
 
-		int i = 1;
 		for (Bundle bundle : bundles) {
 			final Bundle selectedBundle = bundle;
 			CheckBox checkBox = new CheckBox();
@@ -108,8 +113,7 @@ public class BundleView extends CustomComponent {
 				private static final long serialVersionUID = 1L;
 
 				@Override
-				public void valueChange(
-				      com.vaadin.data.Property.ValueChangeEvent event) {
+				public void valueChange(com.vaadin.data.Property.ValueChangeEvent event) {
 					if (selectedBundle.getState() == Bundle.ACTIVE) {
 						try {
 							selectedBundle.stop();
@@ -127,9 +131,10 @@ public class BundleView extends CustomComponent {
 					}
 				}
 			});
+			Dictionary<String, String> headers = bundle.getHeaders();
 			table.addItem(
-			      new Object[] { bundle.getSymbolicName(), bundle.getVersion(),
-			            getStateString(bundle), checkBox }, i++);
+					new Object[] {headers.get("Bundle-Name"), headers.get("Bundle-Vendor"), bundle.getSymbolicName(), bundle.getVersion(), getStateString(bundle), checkBox },
+					"parent-" + bundle.getSymbolicName() + "-" + bundle.getVersion());
 		}
 		table.sort();
 	}

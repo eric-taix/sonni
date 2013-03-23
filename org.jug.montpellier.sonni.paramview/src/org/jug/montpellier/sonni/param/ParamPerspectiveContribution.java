@@ -9,7 +9,6 @@ import com.vaadin.Application;
 import com.vaadin.terminal.Resource;
 import com.vaadin.terminal.ThemeResource;
 import com.vaadin.ui.Component;
-import com.vaadin.ui.Label;
 
 /**
  * @author eric

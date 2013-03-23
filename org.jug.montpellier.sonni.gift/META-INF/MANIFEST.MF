@@ -1,9 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: GiftView
+Bundle-Name: Gift page
 Bundle-SymbolicName: org.jug.montpellier.sonni.gift
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: com.vaadin;bundle-version="6.7.6",
  org.jug.montpellier.sonni.main;bundle-version="1.0.0"
 Service-Component: OSGI-INF/gift.xml
+Bundle-Vendor: Eric Taix - Montpellier JUG

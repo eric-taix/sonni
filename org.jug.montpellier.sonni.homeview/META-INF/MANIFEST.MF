@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: View
+Bundle-Name: Home page
 Bundle-SymbolicName: org.jug.montpellier.sonni.home
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.jug.montpellier.sonni.main;bundle-version="1.0.0",
  com.vaadin;bundle-version="6.4.8"
 Service-Component: OSGI-INF/home.xml
-Bundle-Vendor: JUG Montpellier
+Bundle-Vendor: Eric Taix - Montpellier JUG
 Import-Package: org.slf4j

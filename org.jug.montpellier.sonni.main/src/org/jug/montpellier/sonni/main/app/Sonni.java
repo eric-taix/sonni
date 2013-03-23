@@ -164,7 +164,9 @@ public class Sonni extends Application implements PerspectiveDisplayer {
 		footerViewContribution = footerContribution;
 		if (initialized) {
 			footerContainer.removeAllComponents();
-			footerContainer.addComponent(footerViewContribution.getView(this));
+			Component component = footerViewContribution.getView(this);
+			footerContainer.addComponent(component);
+			footerContainer.setComponentAlignment(component, Alignment.MIDDLE_CENTER);
 		}
 	}
 
