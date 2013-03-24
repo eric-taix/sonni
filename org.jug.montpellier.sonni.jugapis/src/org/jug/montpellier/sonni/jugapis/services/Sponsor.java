@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.jug.montpellier.sonni.sponsors.jug;
+package org.jug.montpellier.sonni.jugapis.services;
 
 
 /**

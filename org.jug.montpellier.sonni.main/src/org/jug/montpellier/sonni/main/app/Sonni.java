@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import com.vaadin.Application;
 import com.vaadin.data.util.ObjectProperty;
+import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
@@ -53,15 +54,23 @@ public class Sonni extends Application implements PerspectiveDisplayer {
 		logger.info("Dynamic Vaadin OSGi demo init...");
 		setTheme("sonni");
 		main = new Window("Sonni - Dynamic Vaadin OSGi Demo");
+		setMainWindow(main);
 		main.addStyleName("sonni");
 		main.setSizeFull();
 
-		mainLayout = (VerticalLayout) main.getContent();
+		AbsoluteLayout topContainer = new AbsoluteLayout();
+		topContainer.setSizeFull();
+		main.setContent(topContainer);
+
+		mainLayout = new VerticalLayout();
 		mainLayout.setMargin(false);
-		setMainWindow(main);
-
 		mainLayout.setSizeFull();
+		topContainer.addComponent(mainLayout);
 
+//		Button detailBtn = new Button();
+//		detailBtn.setIcon(new ThemeResource("img/detail.png"));
+//		topContainer.addComponent(detailBtn,"top: 50%; right: 0px;");
+		
 		// The perspective toolbar and content layout
 		HorizontalLayout toolbarLayout = new HorizontalLayout();
 		toolbarLayout.setSizeFull();

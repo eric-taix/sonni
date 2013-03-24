@@ -10,6 +10,7 @@
 <booleanAttribute key="default" value="true"/>
 <booleanAttribute key="default_auto_start" value="true"/>
 <intAttribute key="default_start_level" value="4"/>
+<stringAttribute key="deselected_workspace_plugins" value="com.siemens.ct.osgi.server.hello,com.siemens.ct.osgi.vaadin.pm.bundleview,com.siemens.ct.osgi.vaadin.pm.logback,com.siemens.ct.osgi.vaadin.pm.main,com.siemens.ct.osgi.vaadin.pm.printaction,com.siemens.ct.osgi.vaadin.pm.reindeeraction,com.siemens.ct.osgi.vaadin.pm.runoraction,com.siemens.ct.osgi.vaadin.pm.saveaction,com.siemens.ct.osgi.vaadin.pm.tableview,com.siemens.ct.osgi.vaadin.pm.theme,com.siemens.ct.osgi.vaadin.pm.treeview,com.siemens.ct.pm.model,com.siemens.ct.pm.model.basic,com.siemens.ct.pm.model.minimal"/>
 <booleanAttribute key="includeOptional" value="true"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog -console 5555"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
@@ -20,5 +21,5 @@
 <booleanAttribute key="tracing" value="false"/>
 <booleanAttribute key="useCustomFeatures" value="false"/>
 <booleanAttribute key="useDefaultConfigArea" value="true"/>
-<stringAttribute key="workspace_bundles" value="org.jug.montpellier.sonni.about@default:default,org.jug.montpellier.sonni.gift@default:default,org.jug.montpellier.sonni.home@default:default,org.jug.montpellier.sonni.logback@default:false,org.jug.montpellier.sonni.main@default:default,org.jug.montpellier.sonni.news@default:default,org.jug.montpellier.sonni.param@default:default,org.jug.montpellier.sonni.sponsors@default:default,org.jug.montpellier.sonni.theme@default:false"/>
+<stringAttribute key="workspace_bundles" value="org.jug.montpellier.sonni.about@default:default,org.jug.montpellier.sonni.gift@default:default,org.jug.montpellier.sonni.home@default:default,org.jug.montpellier.sonni.jugapis@default:default,org.jug.montpellier.sonni.logback@default:false,org.jug.montpellier.sonni.main@default:default,org.jug.montpellier.sonni.news@default:default,org.jug.montpellier.sonni.param@default:default,org.jug.montpellier.sonni.sponsors@default:default,org.jug.montpellier.sonni.theme@default:false"/>
 </launchConfiguration>

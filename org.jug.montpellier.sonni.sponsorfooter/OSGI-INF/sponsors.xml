@@ -4,4 +4,5 @@
    <service>
       <provide interface="org.jug.montpellier.sonni.main.services.IFooterViewContribution"/>
    </service>
+   <reference bind="setRequester" cardinality="1..1" interface="org.jug.montpellier.sonni.jugapis.services.IJugRequester" name="IJugRequester" policy="dynamic" unbind="unsetRequester"/>
 </scr:component>

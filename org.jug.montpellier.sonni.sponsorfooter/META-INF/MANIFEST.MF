@@ -5,9 +5,7 @@ Bundle-SymbolicName: org.jug.montpellier.sonni.sponsors
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: com.vaadin;bundle-version="6.7.6",
- org.jug.montpellier.sonni.main;bundle-version="1.0.0",
- com.fasterxml.jackson.core.jackson-annotations;bundle-version="2.1.4",
- com.fasterxml.jackson.core.jackson-core;bundle-version="2.1.4",
- com.fasterxml.jackson.core.jackson-databind;bundle-version="2.1.4"
+ org.jug.montpellier.sonni.main;bundle-version="1.0.0"
 Service-Component: OSGI-INF/sponsors.xml
 Bundle-Vendor: Eric Taix - Montpellier JUG
+Import-Package: org.jug.montpellier.sonni.jugapis.services

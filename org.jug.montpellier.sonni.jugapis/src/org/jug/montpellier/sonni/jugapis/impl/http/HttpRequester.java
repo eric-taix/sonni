@@ -1,4 +1,4 @@
-package org.jug.montpellier.sonni.sponsors.http;
+package org.jug.montpellier.sonni.jugapis.impl.http;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;

@@ -6,9 +6,9 @@ package org.jug.montpellier.sonni.sponsors;
 import java.io.IOException;
 import java.util.List;
 
+import org.jug.montpellier.sonni.jugapis.services.IJugRequester;
+import org.jug.montpellier.sonni.jugapis.services.Sponsor;
 import org.jug.montpellier.sonni.main.services.IFooterViewContribution;
-import org.jug.montpellier.sonni.sponsors.jug.JugApis;
-import org.jug.montpellier.sonni.sponsors.jug.Sponsor;
 
 import com.vaadin.Application;
 import com.vaadin.terminal.ExternalResource;
@@ -23,6 +23,8 @@ import com.vaadin.ui.HorizontalLayout;
  */
 public class SponsorsFooter implements IFooterViewContribution {
 
+	private IJugRequester requester;
+	
 	/* (non-Javadoc)
 	 * @see org.jug.montpellier.sonni.main.services.IFooterViewContribution#getView(com.vaadin.Application)
 	 */
@@ -34,8 +36,7 @@ public class SponsorsFooter implements IFooterViewContribution {
 		container.setWidth("100%");
 		container.setHeight("100px");
 		try {
-			JugApis api = new JugApis();
-			List<Sponsor> sponsors = api.getCurrentSponsor();
+			List<Sponsor> sponsors = requester.getCurrentSponsor();
 			for (Sponsor sponsor : sponsors) {
 				Embedded logo = new Embedded(null, new ExternalResource(sponsor.logoURL));
 				logo.setHeight("60px");
@@ -49,4 +50,12 @@ public class SponsorsFooter implements IFooterViewContribution {
 		return container;
 	}
 
+	
+	public void setRequester(IJugRequester requester) {
+		this.requester = requester;
+	}
+	
+	public void unsetRequester(IJugRequester requester) {
+		this.requester = null;
+	}
 }
