@@ -90,15 +90,24 @@ public class PerspectiveToolbar extends CustomComponent {
 			public void buttonClick(ClickEvent event) {
 				Object data = event.getButton().getData();
 				if (data != null && data instanceof IPerspectiveViewContribution) {
-					displayer.displayPerspective((IPerspectiveViewContribution) data);
-					switchSelected(btn);
+					diplayPerspective((IPerspectiveViewContribution)data, btn);
 				}
 			}
 		});
 		mainLayout.addComponent(btn, index + 1);
 		perspectiveToButtonMap.put(view, btn);
+		
+		// If it is the forst perspective then switch to it immediately
+		if (perspectives.size() == 1) {
+			diplayPerspective(view, btn);
+		}
 	}
 
+	private void diplayPerspective(IPerspectiveViewContribution perspective, Button btn) {
+		displayer.displayPerspective(perspective);
+		switchSelected(btn);
+	}
+	
 	/**
 	 * Remove a perspective
 	 * 

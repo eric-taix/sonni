@@ -17,7 +17,6 @@ import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
-import com.vaadin.ui.Layout.MarginInfo;
 import com.vaadin.ui.ProgressIndicator;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
@@ -78,14 +77,21 @@ public class Sonni extends Application implements PerspectiveDisplayer {
 		contentContainer = new VerticalLayout();
 		contentContainer.setWidth("100%");
 		contentContainer.addStyleName("perspective-content");
-		contentContainer.setMargin(new MarginInfo(true, false, false, false));
+		contentContainer.setMargin(false);
 		contentContainer.setSizeFull();
 		toolbarLayout.addComponent(contentContainer);
 		toolbarLayout.setExpandRatio(contentContainer, 1.0f);
 
+		HorizontalLayout headerBar = new HorizontalLayout();
+		headerBar.addStyleName("header-bar");
+		headerBar.setWidth("100%");
+		contentContainer.addComponent(headerBar);
+		
 		perspectiveLabel = new Label();
+		perspectiveLabel.setSizeUndefined();
 		perspectiveLabel.addStyleName("perspective-title");
-		contentContainer.addComponent(perspectiveLabel);
+		headerBar.addComponent(perspectiveLabel);
+		headerBar.setComponentAlignment(perspectiveLabel, Alignment.MIDDLE_CENTER);
 
 		perspectiveContent = new VerticalLayout();
 		perspectiveContent.setSizeFull();

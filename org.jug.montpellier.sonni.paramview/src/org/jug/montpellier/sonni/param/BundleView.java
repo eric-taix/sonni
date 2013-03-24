@@ -6,6 +6,9 @@ import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleException;
 
 import com.vaadin.data.Property.ValueChangeListener;
+import com.vaadin.data.util.IndexedContainer;
+import com.vaadin.event.FieldEvents.TextChangeEvent;
+import com.vaadin.event.FieldEvents.TextChangeListener;
 import com.vaadin.terminal.ThemeResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
@@ -14,6 +17,7 @@ import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Table;
+import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 
 @SuppressWarnings("serial")
@@ -28,6 +32,20 @@ public class BundleView extends CustomComponent {
 		verticalLayout.setSpacing(true);
 		verticalLayout.setSizeFull();
 
+		final SymbolicNameFilter symbolicFilter = new SymbolicNameFilter();
+		TextField filterField = new TextField("Filter by symbolic name");
+		filterField.setWidth("200px");
+		verticalLayout.addComponent(filterField);
+		filterField.addListener(new TextChangeListener() {
+			@Override
+			public void textChange(TextChangeEvent event) {
+				symbolicFilter.setFilterString(event.getText());
+				IndexedContainer container = ((IndexedContainer)table.getContainerDataSource());
+				container.removeAllContainerFilters();
+				container.addContainerFilter(symbolicFilter);
+			}
+		});
+		
 		table = new Table();
 		table.addContainerProperty("Name", String.class, null);
 		table.addContainerProperty("Vendor", String.class, null);
@@ -40,7 +58,8 @@ public class BundleView extends CustomComponent {
 		table.setSortContainerPropertyId("Bundle Symbolic Name");
 		table.setSortAscending(true);
 		table.setImmediate(true);
-
+		IndexedContainer container = ((IndexedContainer)table.getContainerDataSource());
+		container.addContainerFilter(symbolicFilter);
 		refreshTable();
 		verticalLayout.addComponent(table);
 		verticalLayout.setExpandRatio(table, 1.0f);
@@ -57,44 +76,6 @@ public class BundleView extends CustomComponent {
 			}
 		});
 		horizontalLayout.addComponent(refreshButton);
-
-		Button selectAllButton = new Button("Select All");
-		selectAllButton.addListener(new ClickListener() {
-
-			@Override
-			public void buttonClick(ClickEvent event) {
-				Bundle[] bundles = Activator.getBundles();
-				for (Bundle bundle : bundles) {
-					try {
-						bundle.start();
-					} catch (BundleException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					refreshTable();
-				}
-			}
-		});
-		horizontalLayout.addComponent(selectAllButton);
-
-		Button deselectAllButton = new Button("Deselect All");
-		deselectAllButton.addListener(new ClickListener() {
-
-			@Override
-			public void buttonClick(ClickEvent event) {
-				Bundle[] bundles = Activator.getBundles();
-				for (Bundle bundle : bundles) {
-					try {
-						bundle.stop();
-					} catch (BundleException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					refreshTable();
-				}
-			}
-		});
-		horizontalLayout.addComponent(deselectAllButton);
 
 		verticalLayout.addComponent(horizontalLayout);
 		setCompositionRoot(verticalLayout);

@@ -32,14 +32,14 @@ public class SponsorsFooter implements IFooterViewContribution {
 		container.setMargin(true);
 		container.setSpacing(true);
 		container.setWidth("100%");
-		container.setHeight("150px");
+		container.setHeight("100px");
 		try {
 			JugApis api = new JugApis();
 			List<Sponsor> sponsors = api.getCurrentSponsor();
 			for (Sponsor sponsor : sponsors) {
 				Embedded logo = new Embedded(null, new ExternalResource(sponsor.logoURL));
-				logo.setHeight("80px");
-				logo.setWidth("150px");
+				logo.setHeight("60px");
+				logo.setWidth("100px");
 				container.addComponent(logo);
 				container.setComponentAlignment(logo, Alignment.MIDDLE_CENTER);
 			}
