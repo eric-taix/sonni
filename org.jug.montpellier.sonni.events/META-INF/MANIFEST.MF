@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Events page
+Bundle-SymbolicName: org.jug.montpellier.sonni.events
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.jug.montpellier.sonni.main;bundle-version="1.0.0",
+ com.vaadin;bundle-version="6.7.6"
+Import-Package: org.jug.montpellier.sonni.jugapis.services
+Service-Component: OSGI-INF/events.xml

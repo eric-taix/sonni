@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.Charset;
 
 /**
  * This class aims to provide easy way to request a server
@@ -74,7 +75,7 @@ public class HttpRequester {
 
 			// Get Response
 			InputStream is = connection.getInputStream();
-			BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+			BufferedReader rd = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 			String line;
 			StringBuffer response = new StringBuffer();
 			while ((line = rd.readLine()) != null) {

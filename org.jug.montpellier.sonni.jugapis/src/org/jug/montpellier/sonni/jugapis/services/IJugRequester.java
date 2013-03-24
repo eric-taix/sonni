@@ -12,4 +12,6 @@ public interface IJugRequester {
 
 	public List<Sponsor> getCurrentSponsor() throws IOException;
 	
+	public List<Conference> getAllConference() throws IOException;
+	
 }

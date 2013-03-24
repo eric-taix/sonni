@@ -18,6 +18,49 @@
 }
 
 /*--------- Application styles ---------*/
+.transparent-bg {
+	background: none;
+}
+
+.conference {
+	background: red;
+	font-size: 14px;
+	font-weight: bold;
+	background: white;
+	color: #fff;
+	float: left;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	box-shadow: 6px 6px 7px 1px rgba(0, 0, 0, 0.3);
+}
+
+.conference .title {
+	font-size: 16px;
+	line-height: 1;
+	font-weight: 300;
+	-webkit-font-smoothing: antialiased;
+	letter-spacing: -0.05em;
+	color: #b92700;
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+	margin: 12px;
+	text-align: center;
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.v-gridlayout-spacing-on {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.conference .description {
+	font-size: 14px;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	letter-spacing: -0.05em;
+	color: #444;
+	text-align: left;
+}
+
 .title {
 	font-size: 22px;
 	font-weight: bold;
@@ -122,10 +165,10 @@
 }
 
 .perspective-content .v-panel-content {
-	border: 1px solid #babfc0;
+	border: 0px solid #babfc0;
 	border-bottom: 0px solid #dee2e3;
-	border-top: 1px solid #dee2e3;
-	background-color: #fff;
+	border-top: 0px solid #dee2e3;
+	background-color: transparent;
 }
 
 .center-parent {
@@ -189,7 +232,7 @@
 	-webkit-filter: grayscale(100%);
 }
 
-.toolbar .v-button:hover img, .toolbar .v-button-selected img {
+.toolbar .v-button:hover img,.toolbar .v-button-selected img {
 	display: block;
 	margin-bottom: 5px;
 	filter:
@@ -202,7 +245,7 @@
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 }
 
-.toolbar .v-button:hover span, .toolbar .v-button-selected span {
+.toolbar .v-button:hover span,.toolbar .v-button-selected span {
 	color: #e1e1e1;
 	text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }

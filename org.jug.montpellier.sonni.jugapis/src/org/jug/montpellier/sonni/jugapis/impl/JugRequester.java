@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.jug.montpellier.sonni.jugapis.impl.http.HttpRequester;
+import org.jug.montpellier.sonni.jugapis.services.Conference;
 import org.jug.montpellier.sonni.jugapis.services.IJugRequester;
 import org.jug.montpellier.sonni.jugapis.services.Sponsor;
 
@@ -26,6 +27,14 @@ public class JugRequester implements IJugRequester {
 		String response = requester.get("/api/partners/currentyear.json", null);
 		ObjectMapper mapper = new ObjectMapper();
 		List<Sponsor> result = mapper.readValue(response, new TypeReference<List<Sponsor>>() {
+		});
+		return result;
+	}
+	
+	public List<Conference> getAllConference() throws IOException {
+		String response = requester.get("/api/events/all.json", null);
+		ObjectMapper mapper = new ObjectMapper();
+		List<Conference> result = mapper.readValue(response, new TypeReference<List<Conference>>() {
 		});
 		return result;
 	}
